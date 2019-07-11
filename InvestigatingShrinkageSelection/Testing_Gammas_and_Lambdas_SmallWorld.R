@@ -25,7 +25,6 @@ gammas <- seq(0,1,0.1)
 sw.gammas.lambdas <- data.frame()
 
 for(g in gammas){
-  g = 0
   temp.ising <- IsingFit(na.omit(Reagan1984), gamma = g, plot = FALSE, progressbar = FALSE)
   lambdas <- seq(0, max(temp.ising$lambda.values), 0.01)
   for(y in lambdas){
