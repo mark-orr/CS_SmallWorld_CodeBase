@@ -1,0 +1,92 @@
+#ENV IMPORTS
+set c $env(c)
+set n $env(n)
+set p $env(p)
+set k $env(k)
+set r $env(r)
+
+#TEST WORKS
+echo $c
+echo $n
+echo $p
+echo $k
+echo $r
+
+#FUNCTIONS
+
+#GOODNESS FUNCTION
+proc goodness {group file} {
+   set G 0.0
+   set tN [getObj $group.numUnits]
+   for {set t 0} {$t < $tN} {incr t} {
+   set aj [expr 2.0 * ([getObj $group.output($t)] - 0.5)]
+   set bN [getObj $group.unit($t).numBlocks]
+   set w 0
+   for {set b 0} {$b < $bN} {incr b} {
+       set fN [getObj $group.unit($t).block($b).groupUnits]
+       for {set f 0} {$f < $fN} {incr f} {
+       set ai  [getObj $group.unit($t).block($b).output($f)]
+       set wij [getObj $group.unit($t).incoming($w).weight]
+       set G   [expr $G + $ai * $aj * $wij ]
+       incr w
+       }
+   }
+   }
+   set fd [open $file a]
+   puts $fd $G
+   close $fd
+}
+#END GOODNESS FUNCTION
+
+#INJECT NOISE INTO INITOUTPUT ON EXPOSURE TO INPUT
+proc distortOutput { group mean noise } {
+ set n [getObj $group.numUnits]
+ for {set u 0} {$u < $n} {incr u} {
+   set val [expr $mean + $noise*(2.0*rand() - 1.0)]
+   setObj $group.unit($u).output $val
+   setObj $group.unit($u).outputHistory(0) $val
+ }
+}
+#END NOISE FUNCTION
+
+
+#START SIM
+deleteNets * 
+
+addNet "CAN encoder (necker)" -i 12.0 -t 2 CONTINUOUS
+addGroup descriptors $n INPUT OUTPUT SOFT_CLAMP BIASED 
+connectGroups descriptors descriptors
+
+deleteExampleSets *
+
+#EXAMPLE SETS
+loadExamples ../Examples/Example.ex -s nodetest -exmode ORDERED
+setObj nodetest.minTime   12.0
+setObj nodetest.maxTime   12.0
+
+setObj learningRate     0.025
+setObj momentum         0.5
+setObj clampStrength 	$c
+setObj randRange        0.25
+
+resetNet
+
+#LOAD WEIGHTS
+loadWeights ../Weight_Generation/Weight_Files/Set_n$n.p$p.k$k.r$r.wt
+
+#TEST
+useTestingSet nodetest
+
+setObj postExampleProc {
+   distortOutput descriptors 0.5 0.1   
+   goodness descriptors goodness.out
+  }
+
+openNetOutputFile outputs.out -append
+test
+closeNetOutputFile
+
+#EXIT
+exit 
+
+#EOF

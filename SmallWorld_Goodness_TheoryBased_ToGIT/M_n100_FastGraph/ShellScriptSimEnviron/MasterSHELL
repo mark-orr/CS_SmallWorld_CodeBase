@@ -1,0 +1,357 @@
+#!/bin/bash
+
+#HIGHER LEVEL PARAMS
+export r=1 #RUN NUMBER INDEX ABSOLUTE ACROSS SIM SET
+export i=10 #NUMBER OF RUNS PER PARAMETER POINT
+
+#STATICs
+export c=0.95 #CLAMP FOR LENS
+export n=100
+
+#K=9
+export k=9
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=17
+export k=17
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=21
+export k=21
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=25
+export k=25
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=29
+export k=29
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=33
+export k=33
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=37
+export k=37
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=41
+export k=41
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=45
+export k=45
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+#K=49
+export k=49
+
+#Ps
+export p=0.00 
+source LoopSHELL
+
+export p=0.01 
+source LoopSHELL
+
+export p=0.05 
+source LoopSHELL
+
+export p=0.10 
+source LoopSHELL
+
+export p=0.15 
+source LoopSHELL
+
+export p=0.20 
+source LoopSHELL
+
+export p=0.25 
+source LoopSHELL
+
+export p=0.50 
+source LoopSHELL
+
+export p=0.75 
+source LoopSHELL
+
+export p=1.00 
+source LoopSHELL
+
+
+#CLEAN UP
+chmod a-w test.out
+mv goodness.out ../Analy
+mv outputs.out ../Analy
+
+#EOF

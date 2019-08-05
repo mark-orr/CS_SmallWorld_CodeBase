@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#NOTES
+#r is env and sets and records run number, init in MasterSHELL.
+#r as run number is absolute across all runs gen by MasterSHELL.
+
+#SIMULATE
+#i IS NUMBER OF RUNS PER
+#Initialized in MotherSource
+j=1
+
+while [ $j -le $i ]
+do
+
+#CAPTURE SIM PARAMS
+echo "n:"$n "p:"$p "k:"$k "r:"$r "i:"$i 
+
+#GEN WEIGHT FILE
+R CMD BATCH ../Weight_Generation/Weight_Files/SWGraph_To_Lens_Weights_FastGraph.r
+
+#RUN LENS FOR ONE SIM
+#ONE SIM RUNS ALL FRACT.POPS IN THIS VERSION AND EXPORTS THE
+#G FOR EACH OF THE INPUTS ON TEST
+/Applications/LensOSX.app/Contents/MacOS/LensOSX SimLens.in
+
+
+r=`echo "$r + 1" | bc` #INCR RUN NUMBER INDEX
+j=`echo "$j + 1" | bc`
+done
+
+
+#IF RUN ANALYSIS AUTOMATICALLY
+#R CMD BATCH ../Analy/Analysis_CAN_FullParam.r
+
+
+
+#EOF
